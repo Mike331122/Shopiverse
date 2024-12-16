@@ -24,6 +24,7 @@
     "@nuxtjs/supabase": "^1.4.3",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "flowbite": "^2.5.2",
-    "prisma": "^6.0.1"
+    "prisma": "^6.0.1",
+    "stripe": "^17.4.0"
   }
 }

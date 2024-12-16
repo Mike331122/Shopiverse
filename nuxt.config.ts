@@ -7,6 +7,12 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxtjs/supabase',
   ],
+  runtimeConfig: {
+    stripeSK: process.env.STRIPE_SK_KEY,
+    public: {
+      stripePK: process.env.STRIPE_PK_KEY
+    }
+  },
   supabase: {
     url: process.env.SUPABASE_URL,
     key: process.env.SUPABASE_KEY,
@@ -25,7 +31,11 @@ export default defineNuxtConfig({
         {
           src: 'https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js',
           defer: true
-        }
+        },
+        {
+          src: 'https://js.stripe.com/v3',
+          defer: true
+        },
       ]
     }
   }

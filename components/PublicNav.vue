@@ -58,5 +58,13 @@
 
 <script setup>
     const user = useSupabaseUser()
+    import { onMounted } from 'vue'
 
+    // initialize components based on data attribute selectors
+    onMounted(async () => {
+        if (import.meta.client) {
+            const flowbite = await import('flowbite');
+    flowbite.initFlowbite();
+        }
+    })
 </script>
