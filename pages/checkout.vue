@@ -61,7 +61,11 @@
 
             const paymentElement =  elements.create('payment', paymentElementOption)
 
-            paymentElement.mount('#payment-element')
+            if (document.querySelector('#payment-element')) {
+                paymentElement.mount('#payment-element');
+            } else {
+                console.error("Error: #payment-element does not exist.");
+            }
         }
 
         initialize()
@@ -136,18 +140,22 @@ function showMessage(messageText) {
 
 // Show a spinner on payment submission
 function setLoading(isLoading) {
+  const submitButton = document.querySelector("#submit");
+  const spinner = document.querySelector("#spinner");
+  const buttonText = document.querySelector("#button-text");
+
+  if (!submitButton || !spinner || !buttonText) return; // Jeśli elementy nie istnieją, zakończ funkcję
+
   if (isLoading) {
-    // Disable the button and show a spinner
-    document.querySelector("#submit").disabled = true;
-    document.querySelector("#spinner").classList.remove("hidden");
-    document.querySelector("#button-text").classList.add("hidden");
+    submitButton.disabled = true;
+    spinner.classList.remove("hidden");
+    buttonText.classList.add("hidden");
   } else {
-    document.querySelector("#submit").disabled = false;
-    document.querySelector("#spinner").classList.add("hidden");
-    document.querySelector("#button-text").classList.remove("hidden");
+    submitButton.disabled = false;
+    spinner.classList.add("hidden");
+    buttonText.classList.remove("hidden");
   }
 }
-
 
 </script>
 
