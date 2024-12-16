@@ -68,8 +68,10 @@
             }
         }
 
-        initialize()
-        checkStatus()
+        setTimeout(() => {
+          initialize();
+          checkStatus();
+        }, 0); // Mikro-opóźnienie, aby upewnić się, że DOM jest gotowy
     })
 
     const handleSubmit = async () => {
