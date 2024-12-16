@@ -131,11 +131,11 @@
 function showMessage(messageText) {
   const messageContainer = document.querySelector("#payment-message");
 
-  messageContainer.classList.remove("hidden");
+  messageContainer.classList.remove(".hidden");
   messageContainer.textContent = messageText;
 
   setTimeout(function () {
-    messageContainer.classList.add("hidden");
+    messageContainer.classList.add(".hidden");
     messageContainer.textContent = "";
   }, 4000);
 }
@@ -146,16 +146,19 @@ function setLoading(isLoading) {
   const spinner = document.querySelector("#spinner");
   const buttonText = document.querySelector("#button-text");
 
-  if (!submitButton || !spinner || !buttonText) return; // Jeśli elementy nie istnieją, zakończ funkcję
+  if (!submitButton || !spinner || !buttonText) {
+    console.error("One of the required elements is missing!");
+    return; // Jeśli elementy nie istnieją, zakończ funkcję
+  } 
 
   if (isLoading) {
     submitButton.disabled = true;
-    spinner.classList.remove("hidden");
-    buttonText.classList.add("hidden");
+    spinner.classList.remove(".hidden");
+    buttonText.classList.add(".hidden");
   } else {
     submitButton.disabled = false;
-    spinner.classList.add("hidden");
-    buttonText.classList.remove("hidden");
+    spinner.classList.add(".hidden");
+    buttonText.classList.remove(".hidden");
   }
 }
 
