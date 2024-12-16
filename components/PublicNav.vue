@@ -64,7 +64,7 @@
     onMounted(async () => {
         if (import.meta.client) {
             const flowbite = await import('flowbite');
-    flowbite.initFlowbite();
+            flowbite.initFlowbite();
         }
     })
 </script>

@@ -63,7 +63,7 @@
                     full_name: fullName.value,
                     address: address.value
                 },
-                emailRedirectTo: 'http://localhost:3000'
+                emailRedirectTo: 'https://shopiverse-fake-store.netlify.app'
             }
         })
 
